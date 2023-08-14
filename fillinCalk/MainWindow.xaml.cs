@@ -37,7 +37,7 @@ namespace fillinCalk
 
         private void k2_Click(object sender, RoutedEventArgs e)
         {
-            //var number = Convert.ToDecimal(bdisp.Text);
+            //var number = Convert.ToDecimal(bdisp.Text); //Інший вигляд
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
             if (success)
             {
