@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/fillinCalk/MainWindow.xaml
+/fillinCalk/MainWindow.xaml
