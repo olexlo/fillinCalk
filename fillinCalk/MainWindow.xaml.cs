@@ -26,7 +26,7 @@ namespace fillinCalk
             {
                 bdisp.Text += "1";
                 Decimal.TryParse(bdisp.Text, out num_b);
-                labb.Content = bdisp.Text;
+                labb.Text = bdisp.Text;
             }
             else
             {
@@ -43,7 +43,7 @@ namespace fillinCalk
             {
                 bdisp.Text += "2";
                 Decimal.TryParse(bdisp.Text, out num_b);
-                labb.Content = bdisp.Text;
+                labb.Text = bdisp.Text;
             }
             else
             {
@@ -59,7 +59,7 @@ namespace fillinCalk
             {
                 bdisp.Text += "3";
                 Decimal.TryParse(bdisp.Text, out num_b);
-                labb.Content = bdisp.Text;
+                labb.Text = bdisp.Text;
             }
             else
             {
@@ -75,7 +75,7 @@ namespace fillinCalk
             {
                 bdisp.Text += "4";
                 Decimal.TryParse(bdisp.Text, out num_b);
-                labb.Content = bdisp.Text;
+                labb.Text = bdisp.Text;
             }
             else
             {
@@ -117,7 +117,7 @@ namespace fillinCalk
                     flf = true;
                     opfun = '/';
                     num_a = num_b;
-                    labb.Content += " / ";
+                    labb.Text += " / ";
                 }
             }
             else
@@ -133,7 +133,7 @@ namespace fillinCalk
             {
                 bdisp.Text += "5";
                 Decimal.TryParse(bdisp.Text, out num_b);
-                labb.Content = bdisp.Text;
+                labb.Text = bdisp.Text;
             }
             else
             {
@@ -149,7 +149,7 @@ namespace fillinCalk
             {
                 bdisp.Text += "6";
                 Decimal.TryParse(bdisp.Text, out num_b);
-                labb.Content = bdisp.Text;
+                labb.Text = bdisp.Text;
             }
             else
             {
@@ -165,7 +165,7 @@ namespace fillinCalk
                 {
                     bdisp.Text += "7";
                     Decimal.TryParse(bdisp.Text, out num_b);
-                    labb.Content = bdisp.Text;
+                    labb.Text = bdisp.Text;
                 }
                 else
                 {
@@ -181,7 +181,7 @@ namespace fillinCalk
                 {
                     bdisp.Text += "8";
                     Decimal.TryParse(bdisp.Text, out num_b);
-                    labb.Content = bdisp.Text;
+                    labb.Text = bdisp.Text;
                 }
                 else
                 {
@@ -197,7 +197,7 @@ namespace fillinCalk
                 {
                     bdisp.Text += "9";
                     Decimal.TryParse(bdisp.Text, out num_b);
-                    labb.Content = bdisp.Text;
+                    labb.Text = bdisp.Text;
                 }
                 else
                 {
@@ -213,7 +213,7 @@ namespace fillinCalk
                 {
                     bdisp.Text += "0";
                     Decimal.TryParse(bdisp.Text, out num_b);
-                    labb.Content = bdisp.Text;
+                    labb.Text = bdisp.Text;
                 }
                 else
                 {
@@ -228,7 +228,7 @@ namespace fillinCalk
                 if (success)
                 {
                     bdisp.Text += ",";
-                    labb.Content = bdisp.Text;
+                    labb.Text = bdisp.Text;
                 }
                 else
                 {
@@ -248,24 +248,24 @@ namespace fillinCalk
                     {
                         case '+': 
                             num_a += num_b;
-                            labb.Content += " * ";
+                            labb.Text += " * ";
                             opfun = '*';
                             break;
                         case '-': 
                             num_a -= num_b;
-                            labb.Content += " * ";
+                            labb.Text += " * ";
                             opfun = '*';
                             break;
                         case '*': 
                             num_a *= num_b;
-                            labb.Content += " * ";
+                            labb.Text += " * ";
                             opfun = '*';
                             break;
                         case '/':
                             if (num_b != 0)
                             {
                                 num_a /= num_b;
-                                labb.Content += " * ";
+                                labb.Text += " * ";
                                 opfun = '*';
                             }
                             else
@@ -281,7 +281,7 @@ namespace fillinCalk
                     flf = true;
                     opfun = '*';
                     num_a = num_b;
-                    labb.Content += " * ";
+                    labb.Text += " * ";
                 }
             }
             else
@@ -323,24 +323,24 @@ namespace fillinCalk
                     {
                         case '+':
                             num_r += num_b;
-                            labb.Content += " = ";
+                            labb.Text += " = ";
                             bdisp.Text=num_r.ToString();
                             break;
                         case '-':
                             num_r -= num_b;
-                            labb.Content += " = ";
+                            labb.Text += " = ";
                             bdisp.Text = num_r.ToString();
                             break;
                         case '*':
                             num_r *= num_b;
-                            labb.Content += " = ";
+                            labb.Text += " = ";
                             bdisp.Text = num_r.ToString();
                             break;
                         case '/':
                             if (num_b != 0)
                             {
                                 num_r /= num_b;
-                                labb.Content += " = ";
+                                labb.Text += " = ";
                                 bdisp.Text = num_r.ToString();
                             }
                             else
@@ -353,7 +353,7 @@ namespace fillinCalk
                 }
                 else
                 {
-                    labb.Content += " Введите знак операции";
+                    labb.Text += " Введите знак операции";
                     return;
                 }
             }
@@ -392,7 +392,7 @@ namespace fillinCalk
                     flf = true;
                     opfun = '+';
                     num_a = num_b;
-                    labb.Content += " + ";
+                    labb.Text += " + ";
                 }
             }
             else
@@ -434,7 +434,7 @@ namespace fillinCalk
                     flf = true;
                     opfun = '-';
                     num_a = num_b;
-                    labb.Content += " - ";
+                    labb.Text += " - ";
                 }
             }
             else
