@@ -13,42 +13,50 @@ namespace fillinCalk
         {
             InitializeComponent();
         }
-        //int kass, rezz, num_b = 0;
-        bool flf=false, flr=true;
+        bool flf=false, flr=true, fr=false;
         decimal num_a=0, num_b=0, num_r=0;
         char opfun = '0';
         
         private void k1_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (fr) 
+            {
+                bdisp.Text = "";
+                fr = false;
+            }
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
             if (success)
             {
                 bdisp.Text += "1";
                 Decimal.TryParse(bdisp.Text, out num_b);
-                labb.Text = bdisp.Text;
+                labb.Text += "1";
             }
             else
             {
                 laberror.Content = "Значение в поле есть недопустимое число";
-                bdisp.Text = "";
+                bdisp.Text = "1";
             }
         }
 
         private void k2_Click(object sender, RoutedEventArgs e)
         {
             //var number = Convert.ToDecimal(bdisp.Text); //Інший вигляд
+            if (fr)
+            {
+                bdisp.Text = "";
+                fr = false;
+            }
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
             if (success)
             {
                 bdisp.Text += "2";
                 Decimal.TryParse(bdisp.Text, out num_b);
-                labb.Text = bdisp.Text;
+                labb.Text += "2";
             }
             else
             {
                 laberror.Content = "Значение в поле есть недопустимое число";
-                bdisp.Text = "";
+                bdisp.Text = "2";
             }
         }
 
@@ -368,9 +376,17 @@ namespace fillinCalk
                 {
                     switch (opfun) 
                     {
-                        case '+': num_a += num_b; break;
-                        case '-': num_a -= num_b; break;
-                        case '*': num_a *= num_b; break;
+                        case '+': 
+                            num_a += num_b;
+                            labb.Text += " = " + num_a.ToString() + " + ";
+                            bdisp.Text = num_a.ToString();
+                            break;
+                        case '-': 
+                            num_a -= num_b; 
+                            break;
+                        case '*': 
+                            num_a *= num_b; 
+                            break;
                         case '/':
                             {
                                 if (num_b != 0)
