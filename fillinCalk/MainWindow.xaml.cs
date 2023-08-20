@@ -476,6 +476,37 @@ namespace fillinCalk
             bdisp.Text = Convert.ToString(num_b);
         }
 
+        private void koct_Click(object sender, RoutedEventArgs e)
+        {
+            labb.Text = Convert.ToString((int)num_b, 10);
+            labb.Text += " OCT [ " + Convert.ToString((int)num_b, 8) + " ] \n";
+        }
+
+        private void khex_Click(object sender, RoutedEventArgs e)
+        {
+            labb.Text = Convert.ToString((int)num_b, 10);
+            labb.Text += " HEX [ " + Convert.ToString((int)num_b, 16) + " ] \n";
+        }
+
+        private void kbin_Click(object sender, RoutedEventArgs e)
+        {
+            labb.Text = Convert.ToString((int)num_b, 10);
+            labb.Text += " BIN [ " + Convert.ToString((int)num_b, 2) + " ] \n";
+        }
+
+        private void kdec_Click(object sender, RoutedEventArgs e)
+        {
+            bool isBinary = Regex.IsMatch(bdisp.Text, "^[01] +$");
+            if (isBinary)
+            {
+                labb.Text = Convert.ToString(Convert.ToInt32(bdisp.Text, 2));
+            }
+            else 
+            {
+                laberror.Content = "Це не бінарний код";
+            }
+        }
+
         private void kmnojen_Click(object sender, RoutedEventArgs e)
         {
             // зміна дії після використання кнопки результату
