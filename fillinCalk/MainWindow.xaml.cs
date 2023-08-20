@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Xml.Linq;
 
 namespace fillinCalk
 {
@@ -424,6 +425,15 @@ namespace fillinCalk
                 laberror.Content = "Значение в поле есть недопустимое число";
                 bdisp.Text = "0,";
             }
+        }
+
+        private void bPercent_Click(object sender, RoutedEventArgs e)
+        {
+            labb.Text = labb.Text.Remove(labb.Text.Length - bdisp.Text.Length);
+            bdisp.Text = bdisp.Text.Remove(bdisp.Text.Length - bdisp.Text.Length);
+            num_b *= num_a / 100;
+            labb.Text += Convert.ToString(num_b);
+            bdisp.Text = Convert.ToString(num_b);
         }
 
         private void kmnojen_Click(object sender, RoutedEventArgs e)
