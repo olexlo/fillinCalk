@@ -32,7 +32,7 @@
         <Button x:Name="kdec" Content="DEC" HorizontalAlignment="Left" Height="28" Margin="235,113,0,0" VerticalAlignment="Top" Width="40" FontSize="16"/>
         <Button x:Name="koct" Content="OCT" HorizontalAlignment="Left" Height="28" Margin="235,146,0,0" VerticalAlignment="Top" Width="40" FontSize="16"/>
         <Button x:Name="kbin" Content="BIN" HorizontalAlignment="Left" Height="28" Margin="235,179,0,0" VerticalAlignment="Top" Width="40" FontSize="16"/>
-        <TextBox x:Name="bdisp" HorizontalAlignment="Left" Height="30" Margin="10,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" TextChanged="bdisp_TextChanged" PreviewTextInput="bdisp_PreviewTextInput"/>
+        <TextBox x:Name="bdisp" Height="30" Margin="10,45,176,0" TextWrapping="Wrap" VerticalAlignment="Top" PreviewTextInput="bdisp_PreviewTextInput"/>
         <Button x:Name="krezz" Content="=" HorizontalAlignment="Left" Margin="100,179,0,0" VerticalAlignment="Top" Height="28" Width="41" Click="krezz_Click"/>
         <Button x:Name="kcan" Content="C" HorizontalAlignment="Left" Margin="190,45,0,0" VerticalAlignment="Top" Height="30" Width="40"/>
 
