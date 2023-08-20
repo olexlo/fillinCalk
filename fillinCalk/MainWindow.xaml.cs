@@ -436,6 +436,46 @@ namespace fillinCalk
             bdisp.Text = Convert.ToString(num_b);
         }
 
+        private void ksin_Click(object sender, RoutedEventArgs e)
+        {
+            labb.Text = labb.Text.Remove(labb.Text.Length - bdisp.Text.Length);
+            bdisp.Text = bdisp.Text.Remove(bdisp.Text.Length - bdisp.Text.Length);
+            num_b = (decimal)Math.Sin((double)num_b * Math.PI / 180);
+            num_b = Decimal.Round(num_b, 4);
+            labb.Text += Convert.ToString(num_b);
+            bdisp.Text = Convert.ToString(num_b);
+        }
+
+        private void kcos_Click(object sender, RoutedEventArgs e)
+        {
+            labb.Text = labb.Text.Remove(labb.Text.Length - bdisp.Text.Length);
+            bdisp.Text = bdisp.Text.Remove(bdisp.Text.Length - bdisp.Text.Length);
+            num_b = (decimal)Math.Cos((double)num_b * Math.PI / 180);
+            num_b = Decimal.Round(num_b, 4);
+            labb.Text += Convert.ToString(num_b);
+            bdisp.Text = Convert.ToString(num_b);
+        }
+
+        private void ktg_Click(object sender, RoutedEventArgs e)
+        {
+            labb.Text = labb.Text.Remove(labb.Text.Length - bdisp.Text.Length);
+            bdisp.Text = bdisp.Text.Remove(bdisp.Text.Length - bdisp.Text.Length);
+            num_b = (decimal)Math.Tan((double)num_b * Math.PI / 180);
+            num_b = Decimal.Round(num_b, 4);
+            labb.Text += Convert.ToString(num_b);
+            bdisp.Text = Convert.ToString(num_b);
+        }
+
+        private void kctg_Click(object sender, RoutedEventArgs e)
+        {
+            labb.Text = labb.Text.Remove(labb.Text.Length - bdisp.Text.Length);
+            bdisp.Text = bdisp.Text.Remove(bdisp.Text.Length - bdisp.Text.Length);
+            num_b = (decimal)(1/Math.Tan((double)num_b * Math.PI / 180));
+            num_b = Decimal.Round(num_b, 4);
+            labb.Text += Convert.ToString(num_b);
+            bdisp.Text = Convert.ToString(num_b);
+        }
+
         private void kmnojen_Click(object sender, RoutedEventArgs e)
         {
             // зміна дії після використання кнопки результату
