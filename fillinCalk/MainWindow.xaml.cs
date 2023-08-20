@@ -14,9 +14,11 @@ namespace fillinCalk
             InitializeComponent();
         }
         bool flf=false, flr=true, fr=false;
-        decimal num_a=0, num_b=0, num_r=0;
-        char opfun = '0';
-        
+        // flf - флаг наявності функціі flr - флаг наявности рішення
+        // fr - флаг якщо була виконана дія і потрібно очистити поле ввода-вивода
+        decimal num_a =0, num_b=0, num_r=0; // перше число, други число, число результат дії
+        char opfun = '0'; // символьне позначення дії
+
         private void k1_Click(object sender, RoutedEventArgs e)
         {
             if (fr) 
@@ -24,6 +26,7 @@ namespace fillinCalk
                 bdisp.Text = "";
                 fr = false;
             }
+            // переведення тексту TextBox в число, якщо в тексте число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
             if (success)
             {
@@ -46,6 +49,7 @@ namespace fillinCalk
                 bdisp.Text = "";
                 fr = false;
             }
+            // переведення тексту TextBox в число, якщо в тексте число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
             if (success)
             {
@@ -62,6 +66,12 @@ namespace fillinCalk
 
         private void k3_Click(object sender, RoutedEventArgs e)
         {
+            if (fr)
+            {
+                bdisp.Text = "";
+                fr = false;
+            }
+            // переведення тексту TextBox в число, якщо в тексте число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
             if (success)
             {
@@ -78,6 +88,12 @@ namespace fillinCalk
 
         private void k4_Click(object sender, RoutedEventArgs e)
         {
+            if (fr)
+            {
+                bdisp.Text = "";
+                fr = false;
+            }
+            // переведення тексту TextBox в число, якщо в тексте число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
             if (success)
             {
@@ -94,22 +110,38 @@ namespace fillinCalk
 
         private void kpodil_Click(object sender, RoutedEventArgs e)
         {
+            // перевіряю що в тексте число, та переутворюю його в число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
             if (success)
             {
+                // якщо раніше було ініциалізованна дія, то цю дію потрибно виконати та ініциалізувати наступну дію
                 if (flf)
                 {
+                    // перевірка яка дія ініціалізованна
                     switch (opfun)
                     {
-                        case '+': num_a += num_b; break;
-                        case '-': num_a -= num_b; break;
-                        case '*': num_a *= num_b; break;
+                        case '+':
+                            num_a += num_b;
+                            labb.Text += " = " + num_a.ToString() + " + ";
+                            bdisp.Text = num_a.ToString();
+                            break;
+                        case '-':
+                            num_a -= num_b;
+                            labb.Text += " = " + num_a.ToString() + " - ";
+                            bdisp.Text = num_a.ToString();
+                            break;
+                        case '*':
+                            num_a *= num_b;
+                            labb.Text += " = " + num_a.ToString() + " * ";
+                            bdisp.Text = num_a.ToString();
+                            break;
                         case '/':
                             {
                                 if (num_b != 0)
                                 {
                                     num_a /= num_b;
-
+                                    labb.Text += " = " + num_a.ToString() + " / ";
+                                    bdisp.Text = num_a.ToString();
                                 }
                                 else
                                 {
@@ -122,8 +154,8 @@ namespace fillinCalk
                 }
                 else
                 {
-                    flf = true;
-                    opfun = '/';
+                    flf = true; // флаг наявності дії
+                    opfun = '/'; // ініціалізація дії
                     num_a = num_b;
                     labb.Text += " / ";
                 }
@@ -168,126 +200,170 @@ namespace fillinCalk
 
         private void k7_Click(object sender, RoutedEventArgs e)
         {
-                bool success = Decimal.TryParse(bdisp.Text, out num_b);
-                if (success)
-                {
-                    bdisp.Text += "7";
-                    Decimal.TryParse(bdisp.Text, out num_b);
-                    labb.Text = bdisp.Text;
-                }
-                else
-                {
-                    laberror.Content = "Значение в поле есть недопустимое число";
-                    bdisp.Text = "";
-                }
+            if (fr)
+            {
+                bdisp.Text = "";
+                fr = false;
+            }
+            // переведення тексту TextBox в число, якщо в тексте число
+            bool success = Decimal.TryParse(bdisp.Text, out num_b);
+            if (success)
+            {
+                bdisp.Text += "7";
+                Decimal.TryParse(bdisp.Text, out num_b);
+                labb.Text = bdisp.Text;
+            }
+            else
+            {
+                laberror.Content = "Значение в поле есть недопустимое число";
+                bdisp.Text = "";
+            }
         }
 
         private void k8_Click(object sender, RoutedEventArgs e)
         {
-                bool success = Decimal.TryParse(bdisp.Text, out num_b);
-                if (success)
-                {
-                    bdisp.Text += "8";
-                    Decimal.TryParse(bdisp.Text, out num_b);
-                    labb.Text = bdisp.Text;
-                }
-                else
-                {
-                    laberror.Content = "Значение в поле есть недопустимое число";
-                    bdisp.Text = "";
-                }
+            if (fr)
+            {
+                bdisp.Text = "";
+                fr = false;
+            }
+            // переведення тексту TextBox в число, якщо в тексте число
+            bool success = Decimal.TryParse(bdisp.Text, out num_b);
+            if (success)
+            {
+                bdisp.Text += "8";
+                Decimal.TryParse(bdisp.Text, out num_b);
+                labb.Text = bdisp.Text;
+            }
+            else
+            {
+                laberror.Content = "Значение в поле есть недопустимое число";
+                bdisp.Text = "";
+            }
         }
 
         private void k9_Click(object sender, RoutedEventArgs e)
         {
-                bool success = Decimal.TryParse(bdisp.Text, out num_b);
-                if (success)
-                {
-                    bdisp.Text += "9";
-                    Decimal.TryParse(bdisp.Text, out num_b);
-                    labb.Text = bdisp.Text;
-                }
-                else
-                {
-                    laberror.Content = "Значение в поле есть недопустимое число";
-                    bdisp.Text = "";
-                }
+            if (fr)
+            {
+                bdisp.Text = "";
+                fr = false;
+            }
+            // переведення тексту TextBox в число, якщо в тексте число
+            bool success = Decimal.TryParse(bdisp.Text, out num_b);
+            if (success)
+            {
+                bdisp.Text += "9";
+                Decimal.TryParse(bdisp.Text, out num_b);
+                labb.Text = bdisp.Text;
+            }
+            else
+            {
+                laberror.Content = "Значение в поле есть недопустимое число";
+                bdisp.Text = "";
+            }
         }
 
         private void k0_Click(object sender, RoutedEventArgs e)
         {
-                bool success = Decimal.TryParse(bdisp.Text, out num_b);
-                if (success)
+            if (fr)
+            {
+                bdisp.Text = "";
+                fr = false;
+            }
+            // переведення тексту TextBox в число, якщо в тексте число
+            bool success = Decimal.TryParse(bdisp.Text, out num_b);
+            if (success)
+            {
+                // число не може починатися з нуля, якщо далі не йде точка
+                if (bdisp.Text == "" || bdisp.Text == "0")
+                {
+                    bdisp.Text = "0,";
+                    labb.Text = bdisp.Text;
+                }
+                else 
                 {
                     bdisp.Text += "0";
                     Decimal.TryParse(bdisp.Text, out num_b);
                     labb.Text = bdisp.Text;
                 }
-                else
-                {
-                    laberror.Content = "Значение в поле есть недопустимое число";
-                    bdisp.Text = "";
-                }
+            }
+            else
+            {
+                laberror.Content = "Значение в поле есть недопустимое число";
+                bdisp.Text = "";
+            }
         }
 
         private void k10_Click(object sender, RoutedEventArgs e)
         {
-                bool success = Decimal.TryParse(bdisp.Text, out num_b);
-                if (success)
-                {
-                    bdisp.Text += ",";
-                    labb.Text = bdisp.Text;
-                }
-                else
-                {
-                    laberror.Content = "Значение в поле есть недопустимое число";
-                    bdisp.Text = "";
-                }
+            if (fr)
+            {
+                bdisp.Text = "0";
+                fr = false;
+            }
+            // переведення тексту TextBox в число, якщо в тексте число
+            bool success = Decimal.TryParse(bdisp.Text, out num_b);
+            if (success)
+            {
+                bdisp.Text += ",";
+                labb.Text = bdisp.Text;
+            }
+            else
+            {
+                laberror.Content = "Значение в поле есть недопустимое число";
+                bdisp.Text = "";
+            }
         }
 
         private void kmnojen_Click(object sender, RoutedEventArgs e)
         {
+            // перевіряю що в тексте число, та переутворюю його в число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
             if (success)
             {
+                // якщо раніше було ініциалізованна дія, то цю дію потрибно виконати та ініциалізувати наступну дію
                 if (flf)
                 {
+                    // перевірка яка дія ініціалізованна
                     switch (opfun)
                     {
-                        case '+': 
+                        case '+':
                             num_a += num_b;
-                            labb.Text += " * ";
-                            opfun = '*';
+                            labb.Text += " = " + num_a.ToString() + " + ";
+                            bdisp.Text = num_a.ToString();
                             break;
-                        case '-': 
+                        case '-':
                             num_a -= num_b;
-                            labb.Text += " * ";
-                            opfun = '*';
+                            labb.Text += " = " + num_a.ToString() + " - ";
+                            bdisp.Text = num_a.ToString();
                             break;
-                        case '*': 
+                        case '*':
                             num_a *= num_b;
-                            labb.Text += " * ";
-                            opfun = '*';
+                            labb.Text += " = " + num_a.ToString() + " * ";
+                            bdisp.Text = num_a.ToString();
                             break;
                         case '/':
-                            if (num_b != 0)
                             {
-                                num_a /= num_b;
-                                labb.Text += " * ";
-                                opfun = '*';
+                                if (num_b != 0)
+                                {
+                                    num_a /= num_b;
+                                    labb.Text += " = " + num_a.ToString() + " / ";
+                                    bdisp.Text = num_a.ToString();
+                                }
+                                else
+                                {
+                                    laberror.Content = "Нельзя делить на ноль";
+                                }
+                                break;
                             }
-                            else
-                            {
-                                laberror.Content = "Нельзя делить на ноль";
-                            }
-                            break;
                         default: break;
                     }
                 }
                 else
                 {
-                    flf = true;
-                    opfun = '*';
+                    flf = true; // флаг наявності дії
+                    opfun = '*'; // ініціалізація дії
                     num_a = num_b;
                     labb.Text += " * ";
                 }
@@ -369,11 +445,14 @@ namespace fillinCalk
 
         private void kplus_Click(object sender, RoutedEventArgs e)
         {
+            // перевіряю що в тексте число, та переутворюю його в число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
             if (success)
             {
-                if (flf)
+                // якщо раніше було ініциалізованна дія, то цю дію потрибно виконати та ініциалізувати наступну дію
+                if (flf) 
                 {
+                    // перевірка яка дія ініціалізованна
                     switch (opfun) 
                     {
                         case '+': 
@@ -382,17 +461,22 @@ namespace fillinCalk
                             bdisp.Text = num_a.ToString();
                             break;
                         case '-': 
-                            num_a -= num_b; 
+                            num_a -= num_b;
+                            labb.Text += " = " + num_a.ToString() + " - ";
+                            bdisp.Text = num_a.ToString();
                             break;
                         case '*': 
-                            num_a *= num_b; 
+                            num_a *= num_b;
+                            labb.Text += " = " + num_a.ToString() + " * ";
+                            bdisp.Text = num_a.ToString();
                             break;
                         case '/':
                             {
                                 if (num_b != 0)
                                 {
                                     num_a /= num_b;
-
+                                    labb.Text += " = " + num_a.ToString() + " / ";
+                                    bdisp.Text = num_a.ToString();
                                 }
                                 else 
                                 {
@@ -405,8 +489,8 @@ namespace fillinCalk
                 }
                 else 
                 {
-                    flf = true;
-                    opfun = '+';
+                    flf = true; // флаг наявності дії
+                    opfun = '+'; // ініціалізація дії
                     num_a = num_b;
                     labb.Text += " + ";
                 }
@@ -419,22 +503,38 @@ namespace fillinCalk
 
         private void kminus_Click(object sender, RoutedEventArgs e)
         {
+            // перевіряю що в тексте число, та переутворюю його в число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
             if (success)
             {
+                // якщо раніше було ініциалізованна дія, то цю дію потрибно виконати та ініциалізувати наступну дію
                 if (flf)
                 {
+                    // перевірка яка дія ініціалізованна
                     switch (opfun)
                     {
-                        case '+': num_a += num_b; break;
-                        case '-': num_a -= num_b; break;
-                        case '*': num_a *= num_b; break;
+                        case '+':
+                            num_a += num_b;
+                            labb.Text += " = " + num_a.ToString() + " + ";
+                            bdisp.Text = num_a.ToString();
+                            break;
+                        case '-':
+                            num_a -= num_b;
+                            labb.Text += " = " + num_a.ToString() + " - ";
+                            bdisp.Text = num_a.ToString();
+                            break;
+                        case '*':
+                            num_a *= num_b;
+                            labb.Text += " = " + num_a.ToString() + " * ";
+                            bdisp.Text = num_a.ToString();
+                            break;
                         case '/':
                             {
                                 if (num_b != 0)
                                 {
-                                    num_a += num_b;
-
+                                    num_a /= num_b;
+                                    labb.Text += " = " + num_a.ToString() + " / ";
+                                    bdisp.Text = num_a.ToString();
                                 }
                                 else
                                 {
@@ -447,8 +547,8 @@ namespace fillinCalk
                 }
                 else
                 {
-                    flf = true;
-                    opfun = '-';
+                    flf = true; // флаг наявності дії
+                    opfun = '-'; // ініціалізація дії
                     num_a = num_b;
                     labb.Text += " - ";
                 }

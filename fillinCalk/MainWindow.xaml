@@ -24,16 +24,10 @@
         <Button x:Name="kpodil" Content="/" HorizontalAlignment="Left" Height="28" Margin="146,179,0,0" VerticalAlignment="Top" Width="39" FontSize="16" Click="kpodil_Click"/>
         <Button x:Name="k10" Content="." HorizontalAlignment="Left" Height="28" Margin="55,179,0,0" VerticalAlignment="Top" Width="40" Click="k10_Click"/>
         <Label x:Name="laberror" Content="" HorizontalAlignment="Center" Height="30" Margin="0,10,0,0" VerticalAlignment="Top" Width="341"/>
-        <Button x:Name="kA" Content="A" HorizontalAlignment="Left" Height="28" Margin="10,212,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button x:Name="kB" Content="B" HorizontalAlignment="Left" Height="28" Margin="55,212,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button x:Name="kC" Content="C" HorizontalAlignment="Left" Height="28" Margin="100,212,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button x:Name="kD" Content="D" HorizontalAlignment="Left" Height="28" Margin="145,212,0,0" VerticalAlignment="Top" Width="40"/>
-        <Button x:Name="kE" Content="E" HorizontalAlignment="Left" Height="28" Margin="190,212,0,0" VerticalAlignment="Top" Width="40"/>
         <Button x:Name="ksin" Content="Sin" HorizontalAlignment="Left" Height="28" Margin="190,80,0,0" VerticalAlignment="Top" Width="40" FontSize="16"/>
         <Button x:Name="kcos" Content="Cos" HorizontalAlignment="Left" Height="28" Margin="190,113,0,0" VerticalAlignment="Top" Width="40" FontSize="16"/>
         <Button x:Name="ktg" Content="Tg" HorizontalAlignment="Left" Height="28" Margin="190,146,0,0" VerticalAlignment="Top" Width="40" FontSize="16"/>
         <Button x:Name="kctg" Content="Ctg" HorizontalAlignment="Left" Height="28" Margin="190,179,0,0" VerticalAlignment="Top" Width="40" FontSize="16"/>
-        <Button x:Name="kF" Content="F" HorizontalAlignment="Left" Height="28" Margin="235,212,0,0" VerticalAlignment="Top" Width="40"/>
         <Button x:Name="khex" Content="HEX" HorizontalAlignment="Left" Height="28" Margin="235,80,0,0" VerticalAlignment="Top" Width="40" FontSize="16"/>
         <Button x:Name="kdec" Content="DEC" HorizontalAlignment="Left" Height="28" Margin="235,113,0,0" VerticalAlignment="Top" Width="40" FontSize="16"/>
         <Button x:Name="koct" Content="OCT" HorizontalAlignment="Left" Height="28" Margin="235,146,0,0" VerticalAlignment="Top" Width="40" FontSize="16"/>
