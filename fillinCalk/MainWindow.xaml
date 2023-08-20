@@ -19,7 +19,7 @@
         <Button x:Name="k0" Content="0" HorizontalAlignment="Left" Height="28" Margin="10,179,0,0" VerticalAlignment="Top" Width="40" Click="k0_Click"/>
         <Button x:Name="kplus" Content="+" HorizontalAlignment="Left" Height="28" Margin="146,80,0,0" VerticalAlignment="Top" Width="39" Click="kplus_Click" FontSize="16"/>
         <Button x:Name="kminus" Content="-" HorizontalAlignment="Left" Height="28" Margin="146,113,0,0" VerticalAlignment="Top" Width="39" Click="kminus_Click" FontSize="16"/>
-        <TextBlock x:Name="labb" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" Margin="10,245,0,0" VerticalAlignment="Top" Width="175" Height="179"/>
+        <TextBlock x:Name="labb" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" Margin="0,245,0,0" VerticalAlignment="Top" Width="341" Height="179"/>
         <Button x:Name="kmnojen" Content="*" HorizontalAlignment="Left" Height="28" Margin="146,146,0,0" VerticalAlignment="Top" Width="39" FontSize="16" Click="kmnojen_Click"/>
         <Button x:Name="kpodil" Content="/" HorizontalAlignment="Left" Height="28" Margin="146,179,0,0" VerticalAlignment="Top" Width="39" FontSize="16" Click="kpodil_Click"/>
         <Button x:Name="k10" Content="." HorizontalAlignment="Left" Height="28" Margin="55,179,0,0" VerticalAlignment="Top" Width="40" Click="k10_Click"/>
