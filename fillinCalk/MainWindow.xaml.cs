@@ -374,7 +374,7 @@ namespace fillinCalk
             }
         }
 
-             private void bdisp_PreviewTextInput(object sender, TextCompositionEventArgs e)
+         private void bdisp_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9.-]+");
             if (regex.IsMatch(e.Text) || (e.Text == "." && ((TextBox)sender).Text.Contains(".")))
