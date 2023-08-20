@@ -13,7 +13,7 @@ namespace fillinCalk
         {
             InitializeComponent();
         }
-        bool flf=false, flr=true, fr=false;
+        bool flf=false, flr=false, fr=false;
         // flf - флаг наявності функціі flr - флаг наявности рішення
         // fr - флаг якщо була виконана дія і потрібно очистити поле ввода-вивода
         decimal num_a =0, num_b=0, num_r=0; // перше число, други число, число результат дії
@@ -110,6 +110,14 @@ namespace fillinCalk
 
         private void kpodil_Click(object sender, RoutedEventArgs e)
         {
+            // зміна дії після використання кнопки результату
+            if (flr)
+            {
+                flr = false;
+                opfun = '/';
+                labb.Text += opfun;
+                return;
+            }
             // перевіряю що в тексте число, та переутворюю його в число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
             if (success)
@@ -117,36 +125,39 @@ namespace fillinCalk
                 // якщо раніше було ініциалізованна дія, то цю дію потрибно виконати та ініциалізувати наступну дію
                 if (flf)
                 {
-                    fr = true;
                     // перевірка яка дія ініціалізованна
                     switch (opfun)
                     {
                         case '+':
                             num_a += num_b;
-                            labb.Text += " = " + num_a.ToString() + " + ";
+                            labb.Text += " = " + num_a.ToString() + opfun;
                             bdisp.Text = num_a.ToString();
-                            flf = false;
+                            num_r = num_b;
+                            num_b = 0;
                             break;
                         case '-':
                             num_a -= num_b;
-                            labb.Text += " = " + num_a.ToString() + " - ";
+                            labb.Text += " = " + num_a.ToString() + opfun;
                             bdisp.Text = num_a.ToString();
-                            flf = false;
+                            num_r = num_b;
+                            num_b = 0;
                             break;
                         case '*':
                             num_a *= num_b;
-                            labb.Text += " = " + num_a.ToString() + " * ";
+                            labb.Text += " = " + num_a.ToString() + opfun;
                             bdisp.Text = num_a.ToString();
-                            flf = false;
+                            num_r = num_b;
+                            num_b = 0;
                             break;
                         case '/':
                             {
                                 if (num_b != 0)
                                 {
                                     num_a /= num_b;
-                                    labb.Text += " = " + num_a.ToString() + " / ";
+                                    labb.Text += " = " + num_a.ToString() + opfun;
                                     bdisp.Text = num_a.ToString();
-                                    flf = false;
+                                    num_r = num_b;
+                                    num_b = 0;
                                 }
                                 else
                                 {
@@ -156,13 +167,17 @@ namespace fillinCalk
                             }
                         default: break;
                     }
+                    opfun = '/';
+                    fr = true;
                 }
                 else
                 {
-                    fr = true;
                     flf = true; // флаг наявності дії
-                    opfun = '/'; // ініціалізація дії
+                    opfun = '+'; // ініціалізація дії
+                    fr = true; // флаг що треба ночинати нове число
                     num_a = num_b;
+                    num_r = num_b;
+                    num_b = 0;
                     labb.Text += " / ";
                 }
             }
@@ -313,6 +328,14 @@ namespace fillinCalk
 
         private void kplus_Click(object sender, RoutedEventArgs e)
         {
+            // зміна дії після використання кнопки результату
+            if (flr)
+            {
+                flr = false;
+                opfun = '+';
+                labb.Text += opfun;
+                return;
+            }
             // перевіряю що в тексте число, та переутворюю його в число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
             if (success)
@@ -325,21 +348,21 @@ namespace fillinCalk
                     {
                         case '+':
                             num_a += num_b;
-                            labb.Text += " = " + num_a.ToString() + " + ";
+                            labb.Text += " = " + num_a.ToString() + opfun;
                             bdisp.Text = num_a.ToString();
                             num_r = num_b;
                             num_b = 0;
                             break;
                         case '-':
                             num_a -= num_b;
-                            labb.Text += " = " + num_a.ToString() + " - ";
+                            labb.Text += " = " + num_a.ToString() + opfun;
                             bdisp.Text = num_a.ToString();
                             num_r = num_b;
                             num_b = 0;
                             break;
                         case '*':
                             num_a *= num_b;
-                            labb.Text += " = " + num_a.ToString() + " * ";
+                            labb.Text += " = " + num_a.ToString() + opfun;
                             bdisp.Text = num_a.ToString();
                             num_r = num_b;
                             num_b = 0;
@@ -349,7 +372,7 @@ namespace fillinCalk
                                 if (num_b != 0)
                                 {
                                     num_a /= num_b;
-                                    labb.Text += " = " + num_a.ToString() + " / ";
+                                    labb.Text += " = " + num_a.ToString() + opfun;
                                     bdisp.Text = num_a.ToString();
                                     num_r = num_b;
                                     num_b = 0;
@@ -405,11 +428,17 @@ namespace fillinCalk
 
         private void kmnojen_Click(object sender, RoutedEventArgs e)
         {
+            // зміна дії після використання кнопки результату
+            if (flr)
+            {
+                flr = false;
+                opfun = '*';
+                return;
+            }
             // перевіряю що в тексте число, та переутворюю його в число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
             if (success)
             {
-                fr = true;
                 // якщо раніше було ініциалізованна дія, то цю дію потрибно виконати та ініциалізувати наступну дію
                 if (flf)
                 {
@@ -418,30 +447,34 @@ namespace fillinCalk
                     {
                         case '+':
                             num_a += num_b;
-                            labb.Text += " = " + num_a.ToString() + " + ";
+                            labb.Text += " = " + num_a.ToString() + opfun;
                             bdisp.Text = num_a.ToString();
-                            flf = false;
+                            num_r = num_b;
+                            num_b = 0;
                             break;
                         case '-':
                             num_a -= num_b;
-                            labb.Text += " = " + num_a.ToString() + " - ";
+                            labb.Text += " = " + num_a.ToString() + opfun;
                             bdisp.Text = num_a.ToString();
-                            flf = false;
+                            num_r = num_b;
+                            num_b = 0;
                             break;
                         case '*':
                             num_a *= num_b;
-                            labb.Text += " = " + num_a.ToString() + " * ";
+                            labb.Text += " = " + num_a.ToString() + opfun;
                             bdisp.Text = num_a.ToString();
-                            flf = false;
+                            num_r = num_b;
+                            num_b = 0;
                             break;
                         case '/':
                             {
                                 if (num_b != 0)
                                 {
                                     num_a /= num_b;
-                                    labb.Text += " = " + num_a.ToString() + " / ";
+                                    labb.Text += " = " + num_a.ToString() + opfun;
                                     bdisp.Text = num_a.ToString();
-                                    flf = false;
+                                    num_r = num_b;
+                                    num_b = 0;
                                 }
                                 else
                                 {
@@ -451,13 +484,17 @@ namespace fillinCalk
                             }
                         default: break;
                     }
+                    opfun = '*';
+                    fr = true;
                 }
                 else
                 {
-                    fr = true;
                     flf = true; // флаг наявності дії
-                    opfun = '*'; // ініціалізація дії
+                    opfun = '+'; // ініціалізація дії
+                    fr = true; // флаг що треба ночинати нове число
                     num_a = num_b;
+                    num_r = num_b;
+                    num_b = 0;
                     labb.Text += " * ";
                 }
             }
@@ -481,28 +518,30 @@ namespace fillinCalk
             if (flf)
             {
                 fr = true;
+                flr = true;
                 switch (opfun)
                 {
                     case '+':
                         num_a += num_b;
-                        labb.Text += " = ";
+                        labb.Text += " = " + num_a.ToString();
                         bdisp.Text = num_a.ToString();
                         break;
                     case '-':
                         num_a -= num_b;
-                        labb.Text += " = ";
+                        labb.Text += " = " + num_a.ToString();
                         bdisp.Text = num_a.ToString();
                         break;
                     case '*':
                         num_a *= num_b;
-                        labb.Text += " = ";
+                        labb.Text += " = " + num_a.ToString();
                         bdisp.Text = num_a.ToString();
                         break;
                     case '/':
                         if (num_b != 0)
                         {
                             num_a /= num_b;
-                            labb.Text += " = ";
+                            labb.Text += " = " + num_a.ToString();
+     ;
                             bdisp.Text = num_a.ToString();
                         }
                         else
@@ -522,11 +561,18 @@ namespace fillinCalk
 
         private void kminus_Click(object sender, RoutedEventArgs e)
         {
+            // зміна дії після використання кнопки результату
+            if (flr)
+            {
+                flr = false;
+                opfun = '-';
+                labb.Text += opfun;
+                return;
+            }
             // перевіряю що в тексте число, та переутворюю його в число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
             if (success)
             {
-                fr = true;
                 // якщо раніше було ініциалізованна дія, то цю дію потрибно виконати та ініциалізувати наступну дію
                 if (flf)
                 {
@@ -535,30 +581,34 @@ namespace fillinCalk
                     {
                         case '+':
                             num_a += num_b;
-                            labb.Text += " = " + num_a.ToString() + " + ";
+                            labb.Text += " = " + num_a.ToString() + opfun;
                             bdisp.Text = num_a.ToString();
-                            flf = false;
+                            num_r = num_b;
+                            num_b = 0;
                             break;
                         case '-':
                             num_a -= num_b;
-                            labb.Text += " = " + num_a.ToString() + " - ";
+                            labb.Text += " = " + num_a.ToString() + opfun;
                             bdisp.Text = num_a.ToString();
-                            flf = false;
+                            num_r = num_b;
+                            num_b = 0;
                             break;
                         case '*':
                             num_a *= num_b;
-                            labb.Text += " = " + num_a.ToString() + " * ";
+                            labb.Text += " = " + num_a.ToString() + opfun;
                             bdisp.Text = num_a.ToString();
-                            flf = false;
+                            num_r = num_b;
+                            num_b = 0;
                             break;
                         case '/':
                             {
                                 if (num_b != 0)
                                 {
                                     num_a /= num_b;
-                                    labb.Text += " = " + num_a.ToString() + " / ";
+                                    labb.Text += " = " + num_a.ToString() + opfun;
                                     bdisp.Text = num_a.ToString();
-                                    flf = false;
+                                    num_r = num_b;
+                                    num_b = 0;
                                 }
                                 else
                                 {
@@ -568,13 +618,17 @@ namespace fillinCalk
                             }
                         default: break;
                     }
+                    opfun = '-';
+                    fr = true;
                 }
                 else
                 {
-                    fr = true;
                     flf = true; // флаг наявності дії
-                    opfun = '-'; // ініціалізація дії
+                    opfun = '+'; // ініціалізація дії
+                    fr = true; // флаг що треба ночинати нове число
                     num_a = num_b;
+                    num_r = num_b;
+                    num_b = 0;
                     labb.Text += " - ";
                 }
             }
