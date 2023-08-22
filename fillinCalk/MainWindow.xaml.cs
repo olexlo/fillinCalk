@@ -26,6 +26,13 @@ namespace fillinCalk
             {
                 bdisp.Text = "";
                 fr = false;
+                if (flr) 
+                {
+                    flr = false;
+                    flf = false;
+                    opfun = ' ';
+                    labb.Text += "\n";
+                }
             }
             // переведення тексту TextBox в число, якщо в тексте число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
@@ -49,6 +56,13 @@ namespace fillinCalk
             {
                 bdisp.Text = "";
                 fr = false;
+                if (flr)
+                {
+                    flr = false;
+                    flf = false;
+                    opfun = ' ';
+                    labb.Text += "\n";
+                }
             }
             // переведення тексту TextBox в число, якщо в тексте число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
@@ -71,6 +85,13 @@ namespace fillinCalk
             {
                 bdisp.Text = "";
                 fr = false;
+                if (flr)
+                {
+                    flr = false;
+                    flf = false;
+                    opfun = ' ';
+                    labb.Text += "\n";
+                }
             }
             // переведення тексту TextBox в число, якщо в тексте число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
@@ -93,6 +114,13 @@ namespace fillinCalk
             {
                 bdisp.Text = "";
                 fr = false;
+                if (flr)
+                {
+                    flr = false;
+                    flf = false;
+                    opfun = ' ';
+                    labb.Text += "\n";
+                }
             }
             // переведення тексту TextBox в число, якщо в тексте число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
@@ -174,7 +202,7 @@ namespace fillinCalk
                 else
                 {
                     flf = true; // флаг наявності дії
-                    opfun = '+'; // ініціалізація дії
+                    opfun = '/'; // ініціалізація дії
                     fr = true; // флаг що треба ночинати нове число
                     num_a = num_b;
                     num_r = num_b;
@@ -194,6 +222,13 @@ namespace fillinCalk
             {
                 bdisp.Text = "";
                 fr = false;
+                if (flr)
+                {
+                    flr = false;
+                    flf = false;
+                    opfun = ' ';
+                    labb.Text += "\n";
+                }
             }
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
             if (success || bdisp.Text == "")
@@ -215,6 +250,13 @@ namespace fillinCalk
             {
                 bdisp.Text = "";
                 fr = false;
+                if (flr)
+                {
+                    flr = false;
+                    flf = false;
+                    opfun = ' ';
+                    labb.Text += "\n"; ;
+                }
             }
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
             if (success || bdisp.Text == "")
@@ -236,6 +278,13 @@ namespace fillinCalk
             {
                 bdisp.Text = "";
                 fr = false;
+                if (flr)
+                {
+                    flr = false;
+                    flf = false;
+                    opfun = ' ';
+                    labb.Text += "\n";
+                }
             }
             // переведення тексту TextBox в число, якщо в тексте число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
@@ -258,6 +307,13 @@ namespace fillinCalk
             {
                 bdisp.Text = "";
                 fr = false;
+                if (flr)
+                {
+                    flr = false;
+                    flf = false;
+                    opfun = ' ';
+                    labb.Text += "\n";
+                }
             }
             // переведення тексту TextBox в число, якщо в тексте число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
@@ -280,6 +336,13 @@ namespace fillinCalk
             {
                 bdisp.Text = "";
                 fr = false;
+                if (flr)
+                {
+                    flr = false;
+                    flf = false;
+                    opfun = ' ';
+                    labb.Text += "\n";
+                }
             }
             // переведення тексту TextBox в число, якщо в тексте число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
@@ -302,6 +365,13 @@ namespace fillinCalk
             {
                 bdisp.Text = "";
                 fr = false;
+                if (flr)
+                {
+                    flr = false;
+                    flf = false;
+                    opfun = ' ';
+                    labb.Text += "\n";
+                }
             }
             // переведення тексту TextBox в число, якщо в тексте число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
@@ -412,6 +482,13 @@ namespace fillinCalk
             {
                 bdisp.Text = "0";
                 fr = false;
+                if (flr)
+                {
+                    flr = false;
+                    flf = false;
+                    opfun = ' ';
+                    labb.Text += "\n";
+                }
             }
             // переведення тексту TextBox в число, якщо в тексте число
             bool success = Decimal.TryParse(bdisp.Text, out num_b);
@@ -582,7 +659,7 @@ namespace fillinCalk
                 else
                 {
                     flf = true; // флаг наявності дії
-                    opfun = '+'; // ініціалізація дії
+                    opfun = '*'; // ініціалізація дії
                     fr = true; // флаг що треба ночинати нове число
                     num_a = num_b;
                     num_r = num_b;
@@ -716,7 +793,7 @@ namespace fillinCalk
                 else
                 {
                     flf = true; // флаг наявності дії
-                    opfun = '+'; // ініціалізація дії
+                    opfun = '-'; // ініціалізація дії
                     fr = true; // флаг що треба ночинати нове число
                     num_a = num_b;
                     num_r = num_b;
