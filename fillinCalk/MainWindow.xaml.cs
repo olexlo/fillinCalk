@@ -507,6 +507,17 @@ namespace fillinCalk
             }
         }
 
+        private void kcan_Click(object sender, RoutedEventArgs e)
+        {
+            flr = false;
+            flf = false;
+            fr = false;
+            labb.Text = "";
+            laberror.Content = "";
+            bdisp.Text = "";
+            opfun = ' ';
+        }
+
         private void kmnojen_Click(object sender, RoutedEventArgs e)
         {
             // зміна дії після використання кнопки результату
