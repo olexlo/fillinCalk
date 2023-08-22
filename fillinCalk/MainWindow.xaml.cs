@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -22,6 +23,7 @@ namespace fillinCalk
 
         private void k1_Click(object sender, RoutedEventArgs e)
         {
+            laberror.Content = string.Empty; // очистить текст
             if (fr) 
             {
                 bdisp.Text = "";
@@ -51,6 +53,7 @@ namespace fillinCalk
 
         private void k2_Click(object sender, RoutedEventArgs e)
         {
+            laberror.Content = string.Empty; // очистить текст
             //var number = Convert.ToDecimal(bdisp.Text); //Інший вигляд
             if (fr)
             {
@@ -81,6 +84,7 @@ namespace fillinCalk
 
         private void k3_Click(object sender, RoutedEventArgs e)
         {
+            laberror.Content = string.Empty; // очистить текст
             if (fr)
             {
                 bdisp.Text = "";
@@ -110,6 +114,7 @@ namespace fillinCalk
 
         private void k4_Click(object sender, RoutedEventArgs e)
         {
+            laberror.Content = string.Empty; // очистить текст
             if (fr)
             {
                 bdisp.Text = "";
@@ -139,6 +144,7 @@ namespace fillinCalk
 
         private void kpodil_Click(object sender, RoutedEventArgs e)
         {
+            laberror.Content = string.Empty; // очистить текст
             // зміна дії після використання кнопки результату
             if (flr)
             {
@@ -218,6 +224,7 @@ namespace fillinCalk
 
         private void k5_Click(object sender, RoutedEventArgs e)
         {
+            laberror.Content = string.Empty; // очистить текст
             if (fr)
             {
                 bdisp.Text = "";
@@ -246,6 +253,7 @@ namespace fillinCalk
 
         private void k6_Click(object sender, RoutedEventArgs e)
         {
+            laberror.Content = string.Empty; // очистить текст
             if (fr)
             {
                 bdisp.Text = "";
@@ -274,6 +282,7 @@ namespace fillinCalk
 
         private void k7_Click(object sender, RoutedEventArgs e)
         {
+            laberror.Content = string.Empty; // очистить текст
             if (fr)
             {
                 bdisp.Text = "";
@@ -303,6 +312,7 @@ namespace fillinCalk
 
         private void k8_Click(object sender, RoutedEventArgs e)
         {
+            laberror.Content = string.Empty; // очистить текст
             if (fr)
             {
                 bdisp.Text = "";
@@ -332,6 +342,7 @@ namespace fillinCalk
 
         private void k9_Click(object sender, RoutedEventArgs e)
         {
+            laberror.Content = string.Empty; // очистить текст
             if (fr)
             {
                 bdisp.Text = "";
@@ -361,6 +372,7 @@ namespace fillinCalk
 
         private void k0_Click(object sender, RoutedEventArgs e)
         {
+            laberror.Content = string.Empty; // очистить текст
             if (fr)
             {
                 bdisp.Text = "";
@@ -399,6 +411,7 @@ namespace fillinCalk
 
         private void kplus_Click(object sender, RoutedEventArgs e)
         {
+            laberror.Content = string.Empty; // очистить текст
             // зміна дії після використання кнопки результату
             if (flr)
             {
@@ -478,6 +491,7 @@ namespace fillinCalk
 
         private void k10_Click(object sender, RoutedEventArgs e)
         {
+            laberror.Content = string.Empty; // очистить текст
             if (fr)
             {
                 bdisp.Text = "0";
@@ -597,6 +611,7 @@ namespace fillinCalk
 
         private void kmnojen_Click(object sender, RoutedEventArgs e)
         {
+            laberror.Content = string.Empty; // очистить текст
             // зміна дії після використання кнопки результату
             if (flr)
             {
@@ -684,6 +699,7 @@ namespace fillinCalk
 
         private void krezz_Click(object sender, RoutedEventArgs e)
         {
+            laberror.Content = string.Empty; // очистить текст
             if (flf)
             {
                 fr = true;
@@ -730,6 +746,7 @@ namespace fillinCalk
 
         private void kminus_Click(object sender, RoutedEventArgs e)
         {
+            laberror.Content = string.Empty; // очистить текст
             // зміна дії після використання кнопки результату
             if (flr)
             {
